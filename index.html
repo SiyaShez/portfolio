@@ -72,7 +72,7 @@
   <!-- FULLSCREEN MENU -->
   <div id="menu-overlay" class="hidden-menu fixed inset-0 z-50 bg-bg flex flex-col">
     <div class="flex items-center justify-between px-6 py-4 border-b border-border">
-      <span class="font-display font-bold text-lg">S<span class="text-amber">.</span></span>
+      <span class="font-display font-bold text-lg">SM<span class="text-amber">.</span></span>
       <button id="menu-close" class="text-muted hover:text-amber text-2xl leading-none" aria-label="Close menu">×</button>
     </div>
     <div class="flex-1 flex flex-col items-center justify-center gap-10">
@@ -337,6 +337,7 @@
     </div>
 
     <!-- SKILLS -->
+  </section>
   <section id="skills" class="max-w-5xl mx-auto px-6 py-24 fade-in">
     <p class="font-mono text-sm text-amber mb-3">SKILLS</p>
     <h2 class="font-display text-3xl sm:text-4xl font-semibold mb-12">Technical Proficiency</h2>
@@ -417,8 +418,38 @@
     <p class="font-mono text-sm text-amber mb-3">CONTACT</p>
     <h2 class="font-display text-3xl sm:text-4xl font-semibold mb-4">Get in Touch</h2>
     <p class="text-muted max-w-xl mb-10 leading-relaxed">
-      Open to opportunities.
+      Open to entry-level security roles, SOC internships, and opportunities to apply a software
+      engineering background to real-world security problems. Response within 24 hours.
     </p>
+
+    <form id="contact-form" class="rounded-lg border border-border bg-surface p-6 sm:p-8 mb-6">
+      <label class="block font-mono text-xs text-muted mb-2" for="cf-name">NAME</label>
+      <input id="cf-name" type="text" required placeholder="Your name" class="w-full mb-5 px-4 py-3 rounded-md bg-surface2 border border-border text-text placeholder-muted outline-none focus:border-amber transition-colors">
+
+      <label class="block font-mono text-xs text-muted mb-2" for="cf-email">EMAIL</label>
+      <input id="cf-email" type="email" required placeholder="your@email.com" class="w-full mb-5 px-4 py-3 rounded-md bg-surface2 border border-border text-text placeholder-muted outline-none focus:border-amber transition-colors">
+
+      <label class="block font-mono text-xs text-muted mb-2" for="cf-message">MESSAGE</label>
+      <textarea id="cf-message" required rows="5" placeholder="What would you like to discuss?" class="w-full mb-6 px-4 py-3 rounded-md bg-surface2 border border-border text-text placeholder-muted outline-none focus:border-amber transition-colors resize-none"></textarea>
+
+      <button type="submit" class="w-full px-6 py-3 bg-text text-bg font-mono text-sm font-medium rounded-md hover:bg-amber transition-colors flex items-center justify-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+        Send Message
+      </button>
+      <p id="cf-status" class="font-mono text-xs text-muted mt-3 text-center"></p>
+    </form>
+
+    <div class="rounded-lg border border-border bg-surface p-6 mb-6">
+      <p class="font-medium flex items-center gap-2 mb-2">
+        <span class="w-2 h-2 rounded-full bg-green inline-block"></span>
+        Open to opportunities
+      </p>
+      <p class="text-muted leading-relaxed">
+        Actively exploring entry-level cybersecurity roles suited to a CompTIA Security+ background —
+        Cybersecurity Analyst, SOC Analyst, and Security Operations internships. Based in Bulawayo,
+        Zimbabwe — open to remote.
+      </p>
+    </div>
 
     <div class="grid gap-4">
       <a href="https://github.com/SiyaShez" target="_blank" class="rounded-lg border border-border bg-surface p-5 flex items-center justify-between hover:border-amber transition-colors">
@@ -428,14 +459,14 @@
         </div>
         <span class="text-muted">→</span>
       </a>
-      <a href="mailto:youremail@example.com" class="rounded-lg border border-border bg-surface p-5 flex items-center justify-between hover:border-amber transition-colors">
+      <a href="mailto:emmamoyo3103@gmail.com" class="rounded-lg border border-border bg-surface p-5 flex items-center justify-between hover:border-amber transition-colors">
         <div>
           <p class="font-medium">Email</p>
           <p class="font-mono text-sm text-muted">emmamoyo3103@gmail.com</p>
         </div>
         <span class="text-muted">→</span>
       </a>
-      <a href="https://www.linkedin.com/in/siyabonga-moyo-5687082a4" class="rounded-lg border border-border bg-surface p-5 flex items-center justify-between hover:border-amber transition-colors">
+      <a href="https://www.linkedin.com/in/siyabonga-moyo-5687082a4" target="_blank" class="rounded-lg border border-border bg-surface p-5 flex items-center justify-between hover:border-amber transition-colors">
         <div>
           <p class="font-medium">LinkedIn</p>
           <p class="font-mono text-sm text-muted">Siyabonga Moyo</p>
@@ -453,10 +484,10 @@
         <a href="https://github.com/SiyaShez" target="_blank" aria-label="GitHub" class="w-14 h-14 rounded-xl bg-surface border border-border flex items-center justify-center text-muted hover:text-amber hover:border-amber transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.75 2.7 1.25 3.36.96.1-.74.4-1.25.72-1.54-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.8 1.18 1.83 1.18 3.09 0 4.43-2.7 5.41-5.27 5.69.41.36.78 1.07.78 2.15 0 1.55-.01 2.8-.01 3.18 0 .31.21.67.8.56A10.97 10.97 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
         </a>
-        <a href="#" aria-label="LinkedIn" class="w-14 h-14 rounded-xl bg-surface border border-border flex items-center justify-center text-muted hover:text-amber hover:border-amber transition-colors">
+        <a href="https://www.linkedin.com/in/siyabonga-moyo-5687082a4" target="_blank" aria-label="LinkedIn" class="w-14 h-14 rounded-xl bg-surface border border-border flex items-center justify-center text-muted hover:text-amber hover:border-amber transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.48v6.26ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
         </a>
-        <a href="mailto:youremail@example.com" aria-label="Email" class="w-14 h-14 rounded-xl bg-surface border border-border flex items-center justify-center text-muted hover:text-amber hover:border-amber transition-colors">
+        <a href="mailto:emmamoyo3103@gmail.com" aria-label="Email" class="w-14 h-14 rounded-xl bg-surface border border-border flex items-center justify-center text-muted hover:text-amber hover:border-amber transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m4 6 8 7 8-7"/></svg>
         </a>
         <a href="#top" aria-label="Back to top" class="w-14 h-14 rounded-xl bg-surface border border-border flex items-center justify-center text-muted hover:text-amber hover:border-amber transition-colors">
@@ -508,6 +539,20 @@
       setTimeout(typeRole, deleting ? 40 : 70);
     }
     typeRole();
+
+    // contact form
+    const cf = document.getElementById('contact-form');
+    const cfStatus = document.getElementById('cf-status');
+    cf.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('cf-name').value.trim();
+      const email = document.getElementById('cf-email').value.trim();
+      const message = document.getElementById('cf-message').value.trim();
+      const subject = encodeURIComponent(`Portfolio contact from ${name}`);
+      const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+      window.location.href = `mailto:emmamoyo3103@gmail.com?subject=${subject}&body=${body}`;
+      cfStatus.textContent = "Opening your email app...";
+    });
 
     // menu toggle
     const menuBtn = document.getElementById('menu-btn');
