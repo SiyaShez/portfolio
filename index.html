@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siyabonga Moyo — Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  if (typeof tailwind !== 'undefined') {
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#0b0e14',
+            surface: '#131720',
+            surface2: '#1a1f2b',
+            border: '#232a38',
+            amber: '#e8a33d',
+            amberDim: '#a97a34',
+            text: '#eef1f6',
+            muted: '#8b92a5',
+            green: '#4ade80',
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background-color: #0b0e14; }
+  .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+  .term-dot { width: 10px; height: 10px; border-radius: 9999px; }
+  ::selection { background: #e8a33d; color: #0b0e14; }
+  .glow { box-shadow: 0 0 0 1px rgba(232,163,61,0.15), 0 0 40px rgba(232,163,61,0.06); }
+  .bar-track { background: #232a38; height: 4px; border-radius: 2px; overflow: hidden; }
+  .bar-fill { background: #8b92a5; height: 4px; border-radius: 2px; }
+  #menu-overlay { transition: opacity 0.3s ease, visibility 0.3s ease; }
+  #menu-overlay.hidden-menu { opacity: 0; visibility: hidden; pointer-events: none; }
+  #terminal-output::-webkit-scrollbar { width: 6px; }
+  #terminal-output::-webkit-scrollbar-thumb { background: #232a38; border-radius: 3px; }
+</style>
+</head>
+<body class="font-body text-text antialiased">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 w-full z-40 backdrop-blur-md bg-bg/70 border-b border-border">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#top" class="font-display font-bold text-lg">SM<span class="text-amber">.</span></a>
+      <button id="menu-btn" class="font-mono text-sm text-muted hover:text-amber transition-colors" aria-label="Open menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- FULLSCREEN MENU -->
+  <div id="menu-overlay" class="hidden-menu fixed inset-0 z-50 bg-bg flex flex-col">
+    <div class="flex items-center justify-between px-6 py-4 border-b border-border">
+      <span class="font-display font-bold text-lg">S<span class="text-amber">.</span></span>
+      <button id="menu-close" class="text-muted hover:text-amber text-2xl leading-none" aria-label="Close menu">×</button>
+    </div>
+    <div class="flex-1 flex flex-col items-center justify-center gap-10">
+      <a href="#about" class="menu-link font-display text-3xl font-semibold hover:text-amber transition-colors">About</a>
+      <a href="#projects" class="menu-link font-display text-3xl font-semibold hover:text-amber transition-colors">Projects</a>
+      <a href="#education" class="menu-link font-display text-3xl font-semibold hover:text-amber transition-colors">Education</a>
+      <a href="#skills" class="menu-link font-display text-3xl font-semibold hover:text-amber transition-colors">Skills</a>
+      <a href="#terminal" class="menu-link font-display text-3xl font-semibold hover:text-amber transition-colors">Terminal</a>
+      <a href="#contact" class="menu-link font-display text-3xl font-semibold hover:text-amber transition-colors">Contact</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section id="top" class="min-h-screen flex flex-col justify-center px-6 max-w-5xl mx-auto pt-24 pb-16">
+   <div class="w-28 h-28 rounded-full bg-surface border border-border mb-8 overflow-hidden">
+  <img src="profile.jpg.png" alt="Siyabonga Moyo" class="w-full h-full object-cover object-top">
+</div>
+    <p class="font-mono text-sm text-amber mb-6 flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-green inline-block"></span>
+      AVAILABLE FOR OPPORTUNITIES
+    </p>
+    <h1 class="font-display font-bold text-5xl sm:text-7xl tracking-tight leading-[1.05] mb-4">Siyabonga Moyo</h1>
+    <p class="font-mono text-muted text-lg sm:text-xl mb-8"><span class="text-amber">~/</span> <span id="typed-role"></span></p>
+    <p class="text-muted text-base sm:text-lg max-w-xl leading-relaxed mb-10">
+      Software engineering student | Aspiring cybersecurity professional
+      Building secure software and developing practical cybersecurity skills through hands-on projects and labs
+    </p>
+    <div class="flex flex-wrap gap-4">
+      <a href="#projects" class="px-6 py-3 bg-text text-bg font-mono text-sm font-medium rounded-md hover:bg-amber transition-colors">View Projects</a>
+      <a href="#contact" class="px-6 py-3 border border-border text-text font-mono text-sm rounded-md hover:border-amber transition-colors">Get in Touch</a>
+    </div>
+    <p class="font-mono text-xs text-muted mt-16 animate-pulse">↓ scroll</p>
+  </section>
+
+  <!-- ABOUT / BACKGROUND -->
+  <section id="about" class="max-w-5xl mx-auto px-6 py-24 fade-in">
+    <p class="font-mono text-sm text-amber mb-3">ABOUT</p>
+    <h2 class="font-display text-3xl sm:text-4xl font-semibold mb-8">Background</h2>
+    <p class="text-muted text-base sm:text-lg leading-relaxed max-w-2xl mb-4">
+      I'm a software engineering student with a passion for cybersecurity. I build and experiment in my home lab, where i work with   Windows Server (Active Directry), Kali Linux,
+      and virtualized environments to learn network security, enumaration, and defence fundamentals.
+    </p>
+    <p class="text-muted text-base sm:text-lg leading-relaxed max-w-2xl mb-10">
+      Beyond the home lab i sharpen my skills on TryHackMe through hands-on labs covering networking, web security, Linux and CTF challenges. I've also recently
+      earned my CompTIA Security+ certification, strengthening my foundation in core security concepts and best practices.
+    </p>
+    <div class="rounded-lg border border-border bg-surface divide-y divide-border">
+      <div class="flex justify-between px-6 py-4">
+        <span class="font-mono text-xs text-muted">LOCATION</span>
+        <span class="font-medium">Bulawayo, Zimbabwe</span>
+      </div>
+      <div class="flex justify-between px-6 py-4">
+        <span class="font-mono text-xs text-muted">FIELD</span>
+        <span class="font-medium">Cybersecurity and Software Engineering</span>
+      </div>
+      <div class="flex justify-between px-6 py-4">
+        <span class="font-mono text-xs text-muted">FOCUS</span>
+        <span class="font-medium">Cybersecurity · Secure Development · Full-Stack</span>
+      </div>
+      <div class="flex justify-between px-6 py-4">
+        <span class="font-mono text-xs text-muted">STATUS</span>
+        <span class="font-medium">Open for opportunities</span>
+      </div>
+      <div class="flex justify-between px-6 py-4">
+        <span class="font-mono text-xs text-muted">LANGUAGES</span>
+        <span class="font-medium">English · Ndebele · Shona </span>
+      </div>
+    </div>
+  </section>
+
+ <!-- PROJECTS -->
+  <section id="projects" class="max-w-5xl mx-auto px-6 py-24 fade-in">
+    <p class="font-mono text-sm text-amber mb-3">PROJECTS</p>
+    <h2 class="font-display text-3xl sm:text-4xl font-semibold mb-12">Featured Work</h2>
+
+    <div class="grid gap-6">
+
+      <div class="rounded-lg border border-border bg-surface overflow-hidden glow">
+        <div class="flex items-center gap-2 px-4 py-3 bg-surface2 border-b border-border">
+          <span class="term-dot bg-red-500/70"></span><span class="term-dot bg-amber/70"></span><span class="term-dot bg-green-500/70"></span>
+          <span class="ml-3 font-mono text-xs text-muted">homelab-setup.sh</span>
+        </div>
+        <div class="p-6">
+          <h3 class="font-display text-xl font-semibold mb-2">Home Lab Build</h3>
+          <p class="text-muted mb-4 leading-relaxed">Built a home lab using VirtualBox, Windows, and Kali Linux to create a safe, isolated environment for hands-on security practice.</p>
+          <p class="font-mono text-xs text-muted mb-2">Skills gained</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">VirtualBox</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Kali Linux</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Virtualization</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Windows Administration</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-lg border border-border bg-surface overflow-hidden">
+        <div class="flex items-center gap-2 px-4 py-3 bg-surface2 border-b border-border">
+          <span class="term-dot bg-red-500/70"></span><span class="term-dot bg-amber/70"></span><span class="term-dot bg-green-500/70"></span>
+          <span class="ml-3 font-mono text-xs text-muted">nmap-scan.sh</span>
+        </div>
+        <div class="p-6">
+          <h3 class="font-display text-xl font-semibold mb-2">Nmap Network Scan</h3>
+          <p class="text-muted mb-4 leading-relaxed">Performed an Nmap network scan against home lab targets and documented the findings, including open ports, services, and potential attack surface.</p>
+          <p class="font-mono text-xs text-muted mb-2">Skills gained</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Nmap</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Network Scanning</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Reconnaissance</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Documentation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-lg border border-border bg-surface overflow-hidden">
+        <div class="flex items-center gap-2 px-4 py-3 bg-surface2 border-b border-border">
+          <span class="term-dot bg-red-500/70"></span><span class="term-dot bg-amber/70"></span><span class="term-dot bg-green-500/70"></span>
+          <span class="ml-3 font-mono text-xs text-muted">traffic-analysis.sh</span>
+        </div>
+        <div class="p-6">
+          <h3 class="font-display text-xl font-semibold mb-2">Traffic Capture &amp; Analysis</h3>
+          <p class="text-muted mb-4 leading-relaxed">Captured and analyzed network traffic using Wireshark, examining packet contents to identify protocols, patterns, and anomalies.</p>
+          <p class="font-mono text-xs text-muted mb-2">Skills gained</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Wireshark</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Packet Analysis</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Network Traffic</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Protocol Analysis</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-lg border border-border bg-surface overflow-hidden">
+        <div class="flex items-center gap-2 px-4 py-3 bg-surface2 border-b border-border">
+          <span class="term-dot bg-red-500/70"></span><span class="term-dot bg-amber/70"></span><span class="term-dot bg-green-500/70"></span>
+          <span class="ml-3 font-mono text-xs text-muted">security-scripts.py</span>
+        </div>
+        <div class="p-6">
+          <h3 class="font-display text-xl font-semibold mb-2">Security Automation Scripts</h3>
+          <p class="text-muted mb-4 leading-relaxed">Wrote Python scripts for security-related tasks such as password generation and log parsing, automating repetitive parts of the analysis workflow.</p>
+          <p class="font-mono text-xs text-muted mb-2">Skills gained</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Python</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Scripting</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Automation</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Log Parsing</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="font-mono text-xs text-muted pt-2">SOFTWARE ENGINEERING BACKGROUND</p>
+
+      <div class="rounded-lg border border-border bg-surface overflow-hidden">
+        <div class="flex items-center gap-2 px-4 py-3 bg-surface2 border-b border-border">
+          <span class="term-dot bg-red-500/70"></span><span class="term-dot bg-amber/70"></span><span class="term-dot bg-green-500/70"></span>
+          <span class="ml-3 font-mono text-xs text-muted">interntrack.sh</span>
+        </div>
+        <div class="p-6">
+          <h3 class="font-display text-xl font-semibold mb-2">InternTrack</h3>
+          <p class="text-muted mb-4 leading-relaxed">A full-stack internship application tracker taking students from application to offer with a clean dashboard view across every company applied to.</p>
+          <p class="font-mono text-xs text-muted mb-2">Skills gained</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">React</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Flask</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">MySQL</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Deployment</span>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <a href="https://internship-tracker-lime-seven.vercel.app" target="_blank" class="font-mono text-sm text-amber hover:underline">→ live site</a>
+            <a href="https://github.com/SiyaShez" target="_blank" class="font-mono text-sm text-muted hover:text-amber hover:underline">→ github</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-lg border border-border bg-surface overflow-hidden">
+        <div class="flex items-center gap-2 px-4 py-3 bg-surface2 border-b border-border">
+          <span class="term-dot bg-red-500/70"></span><span class="term-dot bg-amber/70"></span><span class="term-dot bg-green-500/70"></span>
+          <span class="ml-3 font-mono text-xs text-muted">zimjobmatch.sh</span>
+        </div>
+        <div class="p-6">
+          <h3 class="font-display text-xl font-semibold mb-2">ZimJobMatch</h3>
+          <p class="text-muted mb-4 leading-relaxed">An AI-powered job aggregation and matching platform for the Zimbabwean job market, built as a team project using vector-based matching.</p>
+          <p class="font-mono text-xs text-muted mb-2">Skills gained</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">React</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">TypeScript</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">FastAPI</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">PostgreSQL</span>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <a href="https://github.com/SiyaShez" target="_blank" class="font-mono text-sm text-muted hover:text-amber hover:underline">→ github</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- EDUCATION -->
+  <section id="education" class="max-w-5xl mx-auto px-6 py-24 fade-in">
+    <p class="font-mono text-sm text-amber mb-3">EDUCATION</p>
+    <h2 class="font-display text-3xl sm:text-4xl font-semibold mb-12">Certifications &amp; Education</h2>
+
+    <div class="rounded-lg border border-border bg-surface p-6 mb-6 glow">
+      <div class="flex justify-between items-start mb-3">
+        <span class="font-mono text-xs text-muted">COMPTIA</span>
+        <span class="font-mono text-xs px-2 py-1 rounded border border-green/40 text-green">2026</span>
+      </div>
+      <h3 class="font-semibold text-lg">CompTIA Security+</h3>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Core Security Concepts</span>
+        <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Threats &amp; Vulnerabilities</span>
+        <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Best Practices</span>
+      </div>
+    
+    </div>
+<div class="rounded-lg border border-border bg-surface p-6 mb-6">
+      <div class="flex justify-between items-start mb-3">
+        <span class="font-mono text-xs text-muted">CISCO</span>
+        <span class="font-mono text-xs px-2 py-1 rounded border border-border text-green">2026</span>
+      </div>
+      <h3 class="font-semibold text-lg">Introduction To Cybersecurity</h3>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Cyberscurity fundamentals</span>
+        <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Risk Management &amp; Threat Awareness</span>
+        <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Network &amp; System Security</span>
+      </div>
+    </div>
+      <div class="rounded-lg border border-border bg-surface p-6 mb-6 glow">
+      <div class="flex justify-between items-start mb-3">
+        <span class="font-mono text-xs text-muted">TryHackMe</span>
+        <span class="font-mono text-xs px-2 py-1 rounded border border-green/40 text-green">2026</span>
+      </div>
+      <h3 class="font-semibold text-lg">Pre Security</h3>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Networking Fundamentals</span>
+        <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Linux &amp; Windows Fundamentals</span>
+        <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Cybersecurity &amp; Threat Fundamentals</span>
+      </div>
+    </div>
+    <div class="rounded-lg border border-border bg-surface p-6 mb-6">
+      <div class="flex justify-between items-start mb-3">
+        <span class="font-mono text-xs text-muted">CyberEd</span>
+        <span class="font-mono text-xs px-2 py-1 rounded border border-border text-green">2026</span>
+      </div>
+      <h3 class="font-semibold text-lg">Certified Offensive Security Explorer</h3>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Ethical Hacking</span>
+        <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted"> Host &amp; Networking Penetration Testing</span>
+        <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Web Application Penetration Testing</span>
+      </div>
+      </div>
+     <div class="rounded-lg border border-border bg-surface p-6 mb-6">
+      <div class="flex justify-between items-start mb-3">
+        <span class="font-mono text-xs text-muted">UNIVERSITY</span>
+        <span class="font-mono text-xs px-2 py-1 rounded border border-border text-muted">In Progress</span>
+      </div>
+      <h3 class="font-semibold text-lg">BSc Software Engineering</h3>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Python Programming</span>
+        <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Operating System Concepts</span>
+        <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Database &amp; Web Application Security</span>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+  <section id="skills" class="max-w-5xl mx-auto px-6 py-24 fade-in">
+    <p class="font-mono text-sm text-amber mb-3">SKILLS</p>
+    <h2 class="font-display text-3xl sm:text-4xl font-semibold mb-12">Technical Proficiency</h2>
+
+    <div class="grid gap-6 mb-10">
+      <div class="rounded-lg border border-border bg-surface p-6 glow">
+        <p class="font-mono text-xs text-muted mb-5">SECURITY FUNDAMENTALS</p>
+        <div class="space-y-4">
+          <div><div class="flex justify-between mb-1.5"><span>Network Security</span><span class="text-muted">78%</span></div><div class="bar-track"><div class="bar-fill" style="width:78%"></div></div></div>
+          <div><div class="flex justify-between mb-1.5"><span>Linux</span><span class="text-muted">80%</span></div><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div></div>
+          <div><div class="flex justify-between mb-1.5"><span>Threats &amp; Vulnerabilities</span><span class="text-muted">76%</span></div><div class="bar-track"><div class="bar-fill" style="width:76%"></div></div></div>
+          <div><div class="flex justify-between mb-1.5"><span>Web Security / CTFs</span><span class="text-muted">74%</span></div><div class="bar-track"><div class="bar-fill" style="width:74%"></div></div></div>
+        </div>
+      </div>
+      <div class="rounded-lg border border-border bg-surface p-6 glow">
+        <p class="font-mono text-xs text-muted mb-5">SECURITY TOOLS</p>
+        <div class="space-y-4">
+          <div><div class="flex justify-between mb-1.5"><span>Nmap</span><span class="text-muted">78%</span></div><div class="bar-track"><div class="bar-fill" style="width:78%"></div></div></div>
+          <div><div class="flex justify-between mb-1.5"><span>Wireshark</span><span class="text-muted">76%</span></div><div class="bar-track"><div class="bar-fill" style="width:76%"></div></div></div>
+          <div><div class="flex justify-between mb-1.5"><span>VirtualBox / Kali Linux</span><span class="text-muted">82%</span></div><div class="bar-track"><div class="bar-fill" style="width:82%"></div></div></div>
+          <div><div class="flex justify-between mb-1.5"><span>Python (Security Scripting)</span><span class="text-muted">78%</span></div><div class="bar-track"><div class="bar-fill" style="width:78%"></div></div></div>
+        </div>
+      </div>
+      <div class="rounded-lg border border-border bg-surface p-6">
+        <p class="font-mono text-xs text-muted mb-5">SOFTWARE ENGINEERING BACKGROUND</p>
+        <div class="space-y-4">
+          <div><div class="flex justify-between mb-1.5"><span>React / JavaScript</span><span class="text-muted">85%</span></div><div class="bar-track"><div class="bar-fill" style="width:85%"></div></div></div>
+          <div><div class="flex justify-between mb-1.5"><span>Flask / Python</span><span class="text-muted">80%</span></div><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div></div>
+          <div><div class="flex justify-between mb-1.5"><span>MySQL / Databases</span><span class="text-muted">80%</span></div><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rounded-lg border border-border bg-surface p-6">
+      <p class="font-mono text-xs text-muted mb-4">FULL SKILL SET</p>
+      <div class="flex flex-wrap gap-3 font-mono text-sm">
+        <span class="px-4 py-2 rounded-md bg-surface2 border border-amber/40 text-amber">CompTIA Security+</span>
+        <span class="px-4 py-2 rounded-md bg-surface2 border border-border">Network Security</span>
+        <span class="px-4 py-2 rounded-md bg-surface2 border border-border">Linux</span>
+        <span class="px-4 py-2 rounded-md bg-surface2 border border-border">Nmap</span>
+        <span class="px-4 py-2 rounded-md bg-surface2 border border-border">Wireshark</span>
+        <span class="px-4 py-2 rounded-md bg-surface2 border border-border">Kali Linux</span>
+         <span class="px-4 py-2 rounded-md bg-surface2 border border-border">Ethical Hacking</span>
+          <span class="px-4 py-2 rounded-md bg-surface2 border border-border">Host &amp; Networking Penetration Testing</span>
+           <span class="px-4 py-2 rounded-md bg-surface2 border border-border">Web Application Penetration Testing</span>
+        <span class="px-4 py-2 rounded-md bg-surface2 border border-border">VirtualBox</span>
+        <span class="px-4 py-2 rounded-md bg-surface2 border border-border">TryHackMe</span>
+        <span class="px-4 py-2 rounded-md bg-surface2 border border-border">CTFs</span>
+        <span class="px-4 py-2 rounded-md bg-surface2 border border-border">Threat Analysis</span>
+        <span class="px-4 py-2 rounded-md bg-surface2 border border-border">Log Parsing</span>
+        <span class="px-4 py-2 rounded-md bg-surface2 border border-border">Python</span>
+        <span class="px-4 py-2 rounded-md bg-surface2 border border-border">React</span>
+        <span class="px-4 py-2 rounded-md bg-surface2 border border-border">Flask</span>
+        <span class="px-4 py-2 rounded-md bg-surface2 border border-border">MySQL</span>
+        <span class="px-4 py-2 rounded-md bg-surface2 border border-border">Git &amp; GitHub</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TERMINAL -->
+  <section id="terminal" class="max-w-5xl mx-auto px-6 py-24 fade-in">
+    <p class="font-mono text-sm text-amber mb-3">TERMINAL</p>
+    <h2 class="font-display text-3xl sm:text-4xl font-semibold mb-8">Try it out</h2>
+    <div class="rounded-lg border border-border bg-surface overflow-hidden glow">
+      <div class="flex items-center gap-2 px-4 py-3 bg-surface2 border-b border-border">
+        <span class="term-dot bg-red-500/70"></span><span class="term-dot bg-amber/70"></span><span class="term-dot bg-green-500/70"></span>
+        <span class="ml-3 font-mono text-xs text-muted">siyabonga@portfolio:~</span>
+      </div>
+      <div id="terminal-output" class="p-5 font-mono text-sm h-64 overflow-y-auto space-y-1"></div>
+      <div class="flex items-center gap-2 px-5 pb-5 font-mono text-sm">
+        <input id="terminal-input" type="text" autocomplete="off" placeholder="type 'help'" class="flex-1 bg-transparent outline-none text-text placeholder-muted">
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="max-w-5xl mx-auto px-6 py-24 fade-in">
+    <p class="font-mono text-sm text-amber mb-3">CONTACT</p>
+    <h2 class="font-display text-3xl sm:text-4xl font-semibold mb-4">Get in Touch</h2>
+    <p class="text-muted max-w-xl mb-10 leading-relaxed">
+      Open to opportunities.
+    </p>
+
+    <div class="grid gap-4">
+      <a href="https://github.com/SiyaShez" target="_blank" class="rounded-lg border border-border bg-surface p-5 flex items-center justify-between hover:border-amber transition-colors">
+        <div>
+          <p class="font-medium">GitHub</p>
+          <p class="font-mono text-sm text-muted">SiyaShez</p>
+        </div>
+        <span class="text-muted">→</span>
+      </a>
+      <a href="mailto:youremail@example.com" class="rounded-lg border border-border bg-surface p-5 flex items-center justify-between hover:border-amber transition-colors">
+        <div>
+          <p class="font-medium">Email</p>
+          <p class="font-mono text-sm text-muted">emmamoyo3103@gmail.com</p>
+        </div>
+        <span class="text-muted">→</span>
+      </a>
+      <a href="https://www.linkedin.com/in/siyabonga-moyo-5687082a4" class="rounded-lg border border-border bg-surface p-5 flex items-center justify-between hover:border-amber transition-colors">
+        <div>
+          <p class="font-medium">LinkedIn</p>
+          <p class="font-mono text-sm text-muted">Siyabonga Moyo</p>
+        </div>
+        <span class="text-muted">→</span>
+      </a>
+    </div>
+  </section>
+
+  <footer class="border-t border-border">
+    <div class="max-w-5xl mx-auto px-6 py-16">
+      <h3 class="font-display text-2xl font-bold mb-2">Siyabonga Moyo</h3>
+      <p class="font-mono text-sm text-muted mb-8">Built by Siyabonga Moyo · Bulawayo, ZW</p>
+      <div class="flex gap-4">
+        <a href="https://github.com/SiyaShez" target="_blank" aria-label="GitHub" class="w-14 h-14 rounded-xl bg-surface border border-border flex items-center justify-center text-muted hover:text-amber hover:border-amber transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.75 2.7 1.25 3.36.96.1-.74.4-1.25.72-1.54-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.8 1.18 1.83 1.18 3.09 0 4.43-2.7 5.41-5.27 5.69.41.36.78 1.07.78 2.15 0 1.55-.01 2.8-.01 3.18 0 .31.21.67.8.56A10.97 10.97 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+        </a>
+        <a href="#" aria-label="LinkedIn" class="w-14 h-14 rounded-xl bg-surface border border-border flex items-center justify-center text-muted hover:text-amber hover:border-amber transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.48v6.26ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+        </a>
+        <a href="mailto:youremail@example.com" aria-label="Email" class="w-14 h-14 rounded-xl bg-surface border border-border flex items-center justify-center text-muted hover:text-amber hover:border-amber transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m4 6 8 7 8-7"/></svg>
+        </a>
+        <a href="#top" aria-label="Back to top" class="w-14 h-14 rounded-xl bg-surface border border-border flex items-center justify-center text-muted hover:text-amber hover:border-amber transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // typing effect for role line
+    const roles = ["Software Engineering Student", "Cybersecurity Analyst"];
+    const roleEl = document.getElementById('typed-role');
+    let rIdx = 0, cIdx = 0, deleting = false;
+    function typeRole() {
+      const current = roles[rIdx];
+      if (!deleting) {
+        roleEl.textContent = current.slice(0, cIdx + 1);
+        cIdx++;
+        if (cIdx === current.length) { deleting = true; setTimeout(typeRole, 1400); return; }
+      } else {
+        roleEl.textContent = current.slice(0, cIdx - 1);
+        cIdx--;
+        if (cIdx === 0) { deleting = false; rIdx = (rIdx + 1) % roles.length; }
+      }
+      setTimeout(typeRole, deleting ? 40 : 70);
+    }
+    typeRole();
+
+    // menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const menuClose = document.getElementById('menu-close');
+    const menuOverlay = document.getElementById('menu-overlay');
+    menuBtn.addEventListener('click', () => menuOverlay.classList.remove('hidden-menu'));
+    menuClose.addEventListener('click', () => menuOverlay.classList.add('hidden-menu'));
+    document.querySelectorAll('.menu-link').forEach(link => {
+      link.addEventListener('click', () => menuOverlay.classList.add('hidden-menu'));
+    });
+
+    // scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // terminal
+    const output = document.getElementById('terminal-output');
+    const input = document.getElementById('terminal-input');
+    const commands = {
+      help: "Available commands: about, projects, skills, contact, clear",
+      about: "Siyabonga Moyo — software engineering student building full-stack products with React, Flask & MySQL.",
+      projects: "InternTrack (live) · ZimJobMatch (academic) · EduTrack ZW (in progress)",
+      skills: "React · Flask · Python · MySQL · PostgreSQL · VB.NET · Git · Vercel · Render",
+      contact: "GitHub: SiyaShez — see the Contact section above for more."
+    };
+    function printLine(text, cls) {
+      const p = document.createElement('p');
+      p.textContent = text;
+      if (cls) p.className = cls;
+      output.appendChild(p);
+      output.scrollTop = output.scrollHeight;
+    }
+    printLine("Welcome. Type 'help' to see available commands.", 'text-muted');
+    input.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter') return;
+      const cmd = input.value.trim().toLowerCase();
+      printLine('> ' + input.value, 'text-amber');
+      if (cmd === 'clear') { output.innerHTML = ''; }
+      else if (commands[cmd]) { printLine(commands[cmd], 'text-text'); }
+      else if (cmd) { printLine('command not found: ' + cmd + ' (try "help")', 'text-muted'); }
+      input.value = '';
+    });
+  </script>
+
+</body>
+</html>
