@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Siyabonga Moyo — Software Engineer</title>
+<title>Siyabonga Moyo | Cybersecurity Analyst</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
@@ -51,6 +51,16 @@
 </head>
 <body class="font-body text-text antialiased">
 
+  <!-- PRELOADER -->
+  <div id="preloader" class="fixed inset-0 z-[100] bg-bg flex flex-col items-center justify-center px-6 transition-opacity duration-700">
+    <p class="font-mono text-xs tracking-[0.3em] text-muted mb-6">PORTFOLIO</p>
+    <h1 class="font-display font-bold text-3xl sm:text-6xl text-center mb-10">Siyabonga Moyo</h1>
+    <div class="w-64 sm:w-80 h-px bg-border relative overflow-hidden">
+      <div id="preloader-bar" class="h-px bg-amber absolute left-0 top-0" style="width:0%"></div>
+    </div>
+    <p id="preloader-percent" class="font-mono text-sm text-muted mt-4">0%</p>
+  </div>
+
   <!-- NAV -->
   <nav class="fixed top-0 w-full z-40 backdrop-blur-md bg-bg/70 border-b border-border">
     <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -84,7 +94,7 @@
       <span class="w-2 h-2 rounded-full bg-green inline-block"></span>
       AVAILABLE FOR OPPORTUNITIES
     </p>
-    <h1 class="font-display font-bold text-5xl sm:text-7xl tracking-tight leading-[1.05] mb-4">Siyabonga Moyo</h1>
+    <h1 class="font-display font-bold text-4xl sm:text-7xl tracking-tight leading-[1.05] mb-4">Siyabonga Moyo</h1>
     <p class="font-mono text-muted text-lg sm:text-xl mb-8"><span class="text-amber">~/</span> <span id="typed-role"></span></p>
     <p class="text-muted text-base sm:text-lg max-w-xl leading-relaxed mb-10">
       Software engineering student | Aspiring cybersecurity professional
@@ -110,23 +120,23 @@
       earned my CompTIA Security+ certification, strengthening my foundation in core security concepts and best practices.
     </p>
     <div class="rounded-lg border border-border bg-surface divide-y divide-border">
-      <div class="flex justify-between px-6 py-4">
+      <div class="flex flex-col sm:flex-row sm:justify-between gap-1 px-6 py-4">
         <span class="font-mono text-xs text-muted">LOCATION</span>
         <span class="font-medium">Bulawayo, Zimbabwe</span>
       </div>
-      <div class="flex justify-between px-6 py-4">
+      <div class="flex flex-col sm:flex-row sm:justify-between gap-1 px-6 py-4">
         <span class="font-mono text-xs text-muted">FIELD</span>
         <span class="font-medium">Cybersecurity and Software Engineering</span>
       </div>
-      <div class="flex justify-between px-6 py-4">
+      <div class="flex flex-col sm:flex-row sm:justify-between gap-1 px-6 py-4">
         <span class="font-mono text-xs text-muted">FOCUS</span>
         <span class="font-medium">Cybersecurity · Secure Development · Full-Stack</span>
       </div>
-      <div class="flex justify-between px-6 py-4">
+      <div class="flex flex-col sm:flex-row sm:justify-between gap-1 px-6 py-4">
         <span class="font-mono text-xs text-muted">STATUS</span>
         <span class="font-medium">Open for opportunities</span>
       </div>
-      <div class="flex justify-between px-6 py-4">
+      <div class="flex flex-col sm:flex-row sm:justify-between gap-1 px-6 py-4">
         <span class="font-mono text-xs text-muted">LANGUAGES</span>
         <span class="font-medium">English · Ndebele · Shona </span>
       </div>
@@ -457,6 +467,29 @@
   </footer>
 
   <script>
+    // preloader
+    (function() {
+      const bar = document.getElementById('preloader-bar');
+      const percent = document.getElementById('preloader-percent');
+      const preloader = document.getElementById('preloader');
+      document.body.style.overflow = 'hidden';
+      let p = 0;
+      const interval = setInterval(() => {
+        p += Math.random() * 10 + 5;
+        if (p >= 100) {
+          p = 100;
+          clearInterval(interval);
+          setTimeout(() => {
+            preloader.style.opacity = '0';
+            document.body.style.overflow = '';
+            setTimeout(() => preloader.remove(), 700);
+          }, 350);
+        }
+        bar.style.width = p + '%';
+        percent.textContent = Math.floor(p) + '%';
+      }, 90);
+    })();
+
     // typing effect for role line
     const roles = ["Software Engineering Student", "Cybersecurity Analyst"];
     const roleEl = document.getElementById('typed-role');
@@ -497,9 +530,9 @@
     const input = document.getElementById('terminal-input');
     const commands = {
       help: "Available commands: about, projects, skills, contact, clear",
-      about: "Siyabonga Moyo — software engineering student building full-stack products with React, Flask & MySQL.",
-      projects: "InternTrack (live) · ZimJobMatch (academic) · EduTrack ZW (in progress)",
-      skills: "React · Flask · Python · MySQL · PostgreSQL · VB.NET · Git · Vercel · Render",
+      about: "Siyabonga Moyo — aspiring cybersecurity analyst with a software engineering background in React, Flask & MySQL.",
+      projects: "Home Lab Build · Nmap Scan · Traffic Analysis · Security Scripts — Dev: InternTrack, ZimJobMatch, EduTrack ZW",
+      skills: "Fundamentals: Network Security, Linux, Threats & Vulns — Tools: Nmap, Wireshark, Kali, Python — Dev: React, Flask, MySQL",
       contact: "GitHub: SiyaShez — see the Contact section above for more."
     };
     function printLine(text, cls) {
