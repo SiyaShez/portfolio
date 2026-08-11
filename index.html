@@ -82,7 +82,7 @@
   <!-- FULLSCREEN MENU -->
   <div id="menu-overlay" class="hidden-menu fixed inset-0 z-50 bg-bg flex flex-col">
     <div class="flex items-center justify-between px-6 py-4 border-b border-border">
-      <span class="font-display font-bold text-lg">SM<span class="text-amber">.</span></span>
+      <span class="font-display font-bold text-lg">S<span class="text-amber">.</span></span>
       <button id="menu-close" class="text-muted hover:text-amber text-2xl leading-none" aria-label="Close menu">×</button>
     </div>
     <div class="flex-1 flex flex-col items-center justify-center gap-10">
@@ -175,6 +175,9 @@
             <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Virtualization</span>
             <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Windows Administration</span>
           </div>
+          <div class="flex flex-wrap gap-3 mt-4">
+            <a href="https://github.com/SiyaShez/security-projects/tree/main/01-homelab-build" target="_blank" class="font-mono text-sm text-muted hover:text-amber hover:underline">→ github</a>
+          </div>
         </div>
       </div>
 
@@ -192,6 +195,9 @@
             <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Network Scanning</span>
             <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Reconnaissance</span>
             <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Documentation</span>
+          </div>
+          <div class="flex flex-wrap gap-3 mt-4">
+            <a href="https://github.com/SiyaShez/security-projects/tree/main/02-nmap-scan" target="_blank" class="font-mono text-sm text-muted hover:text-amber hover:underline">→ github</a>
           </div>
         </div>
       </div>
@@ -211,6 +217,9 @@
             <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Network Traffic</span>
             <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Protocol Analysis</span>
           </div>
+          <div class="flex flex-wrap gap-3 mt-4">
+            <a href="https://github.com/SiyaShez/security-projects/tree/main/03-traffic-analysis" target="_blank" class="font-mono text-sm text-muted hover:text-amber hover:underline">→ github</a>
+          </div>
         </div>
       </div>
 
@@ -228,6 +237,52 @@
             <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Scripting</span>
             <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Automation</span>
             <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Log Parsing</span>
+          </div>
+          <div class="flex flex-wrap gap-3 mt-4">
+            <a href="https://github.com/SiyaShez/security-projects/tree/main/04-security-scripts" target="_blank" class="font-mono text-sm text-muted hover:text-amber hover:underline">→ github</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-lg border border-border bg-surface overflow-hidden">
+        <div class="flex items-center gap-2 px-4 py-3 bg-surface2 border-b border-border">
+          <span class="term-dot bg-red-500/70"></span><span class="term-dot bg-amber/70"></span><span class="term-dot bg-green-500/70"></span>
+          <span class="ml-3 font-mono text-xs text-muted">smb-enum.sh</span>
+        </div>
+        <div class="p-6">
+          <h3 class="font-display text-xl font-semibold mb-2">SMB Enumeration &amp; Share Access</h3>
+          <p class="text-muted mb-4 leading-relaxed">Probed SMB for known vulnerabilities, enumerated shares, and browsed an authenticated session to demonstrate real access risk once credentials are compromised.</p>
+          <p class="font-mono text-xs text-muted mb-2">Skills gained</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Nmap NSE</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">smbclient</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Enumeration</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Access Control</span>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <a href="https://github.com/SiyaShez/security-projects/tree/main/05-smb-enumeration" target="_blank" class="font-mono text-sm text-muted hover:text-amber hover:underline">→ github</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-lg border border-border bg-surface overflow-hidden glow">
+        <div class="flex items-center gap-2 px-4 py-3 bg-surface2 border-b border-border">
+          <span class="term-dot bg-red-500/70"></span><span class="term-dot bg-amber/70"></span><span class="term-dot bg-green-500/70"></span>
+          <span class="ml-3 font-mono text-xs text-muted">kerberoast.py</span>
+        </div>
+        <div class="p-6">
+          <h3 class="font-display text-xl font-semibold mb-2">Active Directory &amp; Kerberoasting</h3>
+          <p class="text-muted mb-4 leading-relaxed">Promoted the lab server to a domain controller, built out OUs and user accounts, then executed a full Kerberoasting attack as a low-privilege user — extracting and attempting to crack a service account's ticket hash.</p>
+          <p class="font-mono text-xs text-muted mb-2">Skills gained</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Active Directory</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Impacket</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Kerberoasting</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">John the Ripper</span>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <a href="https://github.com/SiyaShez/security-projects/tree/main/06-active-directory" target="_blank" class="font-mono text-sm text-amber hover:underline">→ AD setup</a>
+            <a href="https://github.com/SiyaShez/security-projects/tree/main/07-kerberoasting" target="_blank" class="font-mono text-sm text-muted hover:text-amber hover:underline">→ kerberoasting</a>
           </div>
         </div>
       </div>
@@ -586,7 +641,7 @@
     const commands = {
       help: "Available commands: about, projects, skills, contact, clear",
       about: "Siyabonga Moyo — aspiring cybersecurity analyst with a software engineering background in React, Flask & MySQL.",
-      projects: "Home Lab Build · Nmap Scan · Traffic Analysis · Security Scripts — Dev: InternTrack, ZimJobMatch, EduTrack ZW",
+      projects: "Home Lab · Nmap · Traffic Analysis · Scripts · SMB Enum · AD & Kerberoasting — Dev: InternTrack, ZimJobMatch, EduTrack ZW",
       skills: "Fundamentals: Network Security, Linux, Threats & Vulns — Tools: Nmap, Wireshark, Kali, Python — Dev: React, Flask, MySQL",
       contact: "GitHub: SiyaShez — see the Contact section above for more."
     };
