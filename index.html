@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Siyabonga Moyo | Cybersecurity Analyst</title>
+<title>Siyabonga Moyo | Cybersecurity Analyst &amp; AI Security Builder</title>
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Siyabonga Moyo | Cybersecurity Analyst">
-<meta property="og:description" content="Aspiring cybersecurity analyst with a software engineering background — home lab, TryHackMe, and CompTIA Security+.">
+<meta property="og:title" content="Siyabonga Moyo | Cybersecurity Analyst & AI Security Builder">
+<meta property="og:description" content="Software Engineering student exploring the intersection of artificial intelligence, cybersecurity, and secure software development.">
 <meta property="og:image" content="https://portfolio-ten-jade-a6y9ug5o97.vercel.app/og-image.png">
 <meta property="og:url" content="https://portfolio-ten-jade-a6y9ug5o97.vercel.app">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Siyabonga Moyo | Cybersecurity Analyst">
-<meta name="twitter:description" content="Aspiring cybersecurity analyst with a software engineering background — home lab, TryHackMe, and CompTIA Security+.">
+<meta name="twitter:title" content="Siyabonga Moyo | Cybersecurity Analyst & AI Security Builder">
+<meta name="twitter:description" content="Software Engineering student exploring the intersection of artificial intelligence, cybersecurity, and secure software development.">
 <meta name="twitter:image" content="https://portfolio-ten-jade-a6y9ug5o97.vercel.app/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -107,8 +107,7 @@
     <h1 class="font-display font-bold text-4xl sm:text-7xl tracking-tight leading-[1.05] mb-4">Siyabonga Moyo</h1>
     <p class="font-mono text-muted text-lg sm:text-xl mb-8"><span class="text-amber">~/</span> <span id="typed-role"></span></p>
     <p class="text-muted text-base sm:text-lg max-w-xl leading-relaxed mb-10">
-      Software engineering student | Aspiring cybersecurity professional
-      Building secure software and developing practical cybersecurity skills through hands-on projects and labs
+      Software Engineering student exploring the intersection of artificial intelligence, cybersecurity, and secure software development.
     </p>
     <div class="flex flex-wrap gap-4">
       <a href="#projects" class="px-6 py-3 bg-text text-bg font-mono text-sm font-medium rounded-md hover:bg-amber transition-colors">View Projects</a>
@@ -125,9 +124,12 @@
       I'm a software engineering student with a passion for cybersecurity. I build and experiment in my home lab, where i work with   Windows Server (Active Directry), Kali Linux,
       and virtualized environments to learn network security, enumaration, and defence fundamentals.
     </p>
-    <p class="text-muted text-base sm:text-lg leading-relaxed max-w-2xl mb-10">
+    <p class="text-muted text-base sm:text-lg leading-relaxed max-w-2xl mb-4">
       Beyond the home lab i sharpen my skills on TryHackMe through hands-on labs covering networking, web security, Linux and CTF challenges. I've also recently
       earned my CompTIA Security+ certification, strengthening my foundation in core security concepts and best practices.
+    </p>
+    <p class="text-muted text-base sm:text-lg leading-relaxed max-w-2xl mb-10">
+      More recently I've been combining that security foundation with AI — starting with CyberSec AI, a fully offline RAG assistant I built from scratch to learn how local LLMs, embeddings, and vector search actually work, then applying those same foundations to Sentra: an intrusion detection system that explains its own reasoning using SHAP, adapts to a network's own traffic baseline, and runs a local LLM to summarize alerts for an analyst, all without sending any data to the cloud.
     </p>
     <div class="rounded-lg border border-border bg-surface divide-y divide-border">
       <div class="flex flex-col sm:flex-row sm:justify-between gap-1 px-6 py-4">
@@ -161,6 +163,50 @@
     <div class="grid gap-6">
 
       <div class="rounded-lg border border-border bg-surface overflow-hidden glow">
+        <div class="flex items-center gap-2 px-4 py-3 bg-surface2 border-b border-border">
+          <span class="term-dot bg-red-500/70"></span><span class="term-dot bg-amber/70"></span><span class="term-dot bg-green-500/70"></span>
+          <span class="ml-3 font-mono text-xs text-muted">sentra.py</span>
+        </div>
+        <div class="p-6">
+          <h3 class="font-display text-xl font-semibold mb-2">Sentra — AI-Powered SOC Copilot</h3>
+          <p class="text-muted mb-4 leading-relaxed">An intrusion detection system that explains its own decisions. Trained a Random Forest classifier on real network traffic (99.9% recall across brute-force and DoS attacks), added a SHAP explainability layer, a custom baseline-learning module that adapts to what's "normal" for a specific network, MITRE ATT&amp;CK mapping, and a locally-run LLM (Llama 3.2 via Ollama) that turns raw detections into plain-English analyst summaries — no cloud dependency.</p>
+          <p class="font-mono text-xs text-muted mb-2">Skills gained</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Machine Learning</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">SHAP / Explainable AI</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Local LLMs (Ollama)</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">MITRE ATT&amp;CK</span>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <a href="https://santra-soc-copilot-nmdszbdmymffnzgadx66zu.streamlit.app/" target="_blank" class="font-mono text-sm text-amber hover:underline">→ live demo</a>
+            <a href="https://github.com/SiyaShez/santra-soc-copilot" target="_blank" class="font-mono text-sm text-muted hover:text-amber hover:underline">→ github</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-lg border border-border bg-surface overflow-hidden">
+        <div class="flex items-center gap-2 px-4 py-3 bg-surface2 border-b border-border">
+          <span class="term-dot bg-red-500/70"></span><span class="term-dot bg-amber/70"></span><span class="term-dot bg-green-500/70"></span>
+          <span class="ml-3 font-mono text-xs text-muted">cybersec_ai.py</span>
+        </div>
+        <div class="p-6">
+          <h3 class="font-display text-xl font-semibold mb-2">CyberSec AI — Local LLM Cybersecurity Assistant</h3>
+          <p class="text-muted mb-4 leading-relaxed">A fully offline retrieval-augmented generation (RAG) assistant built from first principles as groundwork for Sentra — no paid API, no cloud dependency. Documented every stage from a single Ollama API call through prompt engineering and conversation memory, to embeddings (nomic-embed-text), a FAISS vector index with save/load persistence, and automatic re-indexing when the knowledge base changes. Includes a public build log with the real bugs hit along the way (an IndexError, a retrieval-scoring issue still being investigated).</p>
+          <p class="font-mono text-xs text-muted mb-2">Skills gained</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">RAG Pipelines</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Embeddings</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">FAISS</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-md bg-surface2 border border-border text-muted">Prompt Engineering</span>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <a href="https://github.com/SiyaShez/cybersec_ai/blob/main/docs/DEVELOPMENT_JOURNEY.md" target="_blank" class="font-mono text-sm text-amber hover:underline">→ build log</a>
+            <a href="https://github.com/SiyaShez/cybersec_ai" target="_blank" class="font-mono text-sm text-muted hover:text-amber hover:underline">→ github</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-lg border border-border bg-surface overflow-hidden">
         <div class="flex items-center gap-2 px-4 py-3 bg-surface2 border-b border-border">
           <span class="term-dot bg-red-500/70"></span><span class="term-dot bg-amber/70"></span><span class="term-dot bg-green-500/70"></span>
           <span class="ml-3 font-mono text-xs text-muted">homelab-setup.sh</span>
@@ -409,6 +455,17 @@
 
     <div class="grid gap-6 mb-10">
       <div class="rounded-lg border border-border bg-surface p-6 glow">
+        <p class="font-mono text-xs text-muted mb-5">AI &amp; MACHINE LEARNING</p>
+        <div class="space-y-4">
+          <div><div class="flex justify-between mb-1.5"><span>Python (AI/ML Development)</span><span class="text-muted">80%</span></div><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div></div>
+          <div><div class="flex justify-between mb-1.5"><span>Machine Learning (scikit-learn)</span><span class="text-muted">76%</span></div><div class="bar-track"><div class="bar-fill" style="width:76%"></div></div></div>
+          <div><div class="flex justify-between mb-1.5"><span>Explainable AI (SHAP)</span><span class="text-muted">72%</span></div><div class="bar-track"><div class="bar-fill" style="width:72%"></div></div></div>
+          <div><div class="flex justify-between mb-1.5"><span>Local LLMs (Ollama)</span><span class="text-muted">74%</span></div><div class="bar-track"><div class="bar-fill" style="width:74%"></div></div></div>
+          <div><div class="flex justify-between mb-1.5"><span>RAG &amp; Vector Search (FAISS)</span><span class="text-muted">72%</span></div><div class="bar-track"><div class="bar-fill" style="width:72%"></div></div></div>
+          <div><div class="flex justify-between mb-1.5"><span>MITRE ATT&amp;CK Mapping</span><span class="text-muted">70%</span></div><div class="bar-track"><div class="bar-fill" style="width:70%"></div></div></div>
+        </div>
+      </div>
+      <div class="rounded-lg border border-border bg-surface p-6 glow">
         <p class="font-mono text-xs text-muted mb-5">SECURITY FUNDAMENTALS</p>
         <div class="space-y-4">
           <div><div class="flex justify-between mb-1.5"><span>Network Security</span><span class="text-muted">78%</span></div><div class="bar-track"><div class="bar-fill" style="width:78%"></div></div></div>
@@ -440,6 +497,13 @@
       <p class="font-mono text-xs text-muted mb-4">FULL SKILL SET</p>
       <div class="flex flex-wrap gap-3 font-mono text-sm">
         <span class="px-4 py-2 rounded-md bg-surface2 border border-amber/40 text-amber">CompTIA Security+</span>
+        <span class="px-4 py-2 rounded-md bg-surface2 border border-amber/40 text-amber">Machine Learning</span>
+        <span class="px-4 py-2 rounded-md bg-surface2 border border-amber/40 text-amber">SHAP / Explainable AI</span>
+        <span class="px-4 py-2 rounded-md bg-surface2 border border-amber/40 text-amber">Local LLMs (Ollama)</span>
+        <span class="px-4 py-2 rounded-md bg-surface2 border border-amber/40 text-amber">RAG Pipelines</span>
+        <span class="px-4 py-2 rounded-md bg-surface2 border border-amber/40 text-amber">FAISS / Vector Search</span>
+        <span class="px-4 py-2 rounded-md bg-surface2 border border-amber/40 text-amber">MITRE ATT&amp;CK</span>
+        <span class="px-4 py-2 rounded-md bg-surface2 border border-border">Streamlit</span>
         <span class="px-4 py-2 rounded-md bg-surface2 border border-border">Network Security</span>
         <span class="px-4 py-2 rounded-md bg-surface2 border border-border">Linux</span>
         <span class="px-4 py-2 rounded-md bg-surface2 border border-border">Nmap</span>
@@ -555,6 +619,9 @@
         <a href="mailto:emmamoyo3103@gmail.com" aria-label="Email" class="w-14 h-14 rounded-xl bg-surface border border-border flex items-center justify-center text-muted hover:text-amber hover:border-amber transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m4 6 8 7 8-7"/></svg>
         </a>
+        <a href="https://wa.me/263776820724" target="_blank" aria-label="WhatsApp" class="w-14 h-14 rounded-xl bg-surface border border-border flex items-center justify-center text-muted hover:text-amber hover:border-amber transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.29-.15-1.7-.84-1.97-.93-.26-.1-.46-.15-.65.15-.2.29-.75.93-.92 1.12-.17.2-.34.22-.63.08-.29-.15-1.22-.45-2.32-1.43-.86-.76-1.44-1.71-1.6-2-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.51-.08-.15-.65-1.56-.89-2.14-.23-.56-.47-.48-.65-.49-.17-.01-.36-.01-.56-.01-.2 0-.51.07-.78.37-.26.29-1.02 1-1.02 2.42s1.05 2.8 1.19 3c.15.2 2.07 3.15 5.02 4.42.7.3 1.25.48 1.68.61.7.22 1.35.19 1.85.12.57-.09 1.7-.7 1.94-1.36.24-.67.24-1.25.17-1.37-.07-.12-.26-.19-.55-.34ZM12 2C6.5 2 2 6.5 2 12c0 1.85.5 3.58 1.38 5.08L2 22l5.05-1.32A9.95 9.95 0 0 0 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2Zm0 18c-1.65 0-3.19-.48-4.5-1.3l-.32-.2-3 .79.8-2.92-.21-.3A7.95 7.95 0 0 1 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8Z"/></svg>
+        </a>
         <a href="#top" aria-label="Back to top" class="w-14 h-14 rounded-xl bg-surface border border-border flex items-center justify-center text-muted hover:text-amber hover:border-amber transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
         </a>
@@ -587,7 +654,7 @@
     })();
 
     // typing effect for role line
-    const roles = ["Software Engineering Student", "Cybersecurity Analyst"];
+    const roles = ["AI × CYBERSECURITY", "SOFTWARE ENGINEERING", "AI/ML DEVELOPMENT", "CYBERSECURITY", "SECURE SYSTEMS"];
     const roleEl = document.getElementById('typed-role');
     let rIdx = 0, cIdx = 0, deleting = false;
     function typeRole() {
@@ -640,9 +707,9 @@
     const input = document.getElementById('terminal-input');
     const commands = {
       help: "Available commands: about, projects, skills, contact, clear",
-      about: "Siyabonga Moyo — aspiring cybersecurity analyst with a software engineering background in React, Flask & MySQL.",
-      projects: "Home Lab · Nmap · Traffic Analysis · Scripts · SMB Enum · AD & Kerberoasting — Dev: InternTrack, ZimJobMatch, EduTrack ZW",
-      skills: "Fundamentals: Network Security, Linux, Threats & Vulns — Tools: Nmap, Wireshark, Kali, Python — Dev: React, Flask, MySQL",
+      about: "Siyabonga Moyo — aspiring cybersecurity analyst with a software engineering background in React, Flask & MySQL, now building AI-powered security tools.",
+      projects: "Sentra (AI SOC Copilot) · CyberSec AI (Local RAG Assistant) · Home Lab · Nmap · Traffic Analysis · Scripts · SMB Enum · AD & Kerberoasting — Dev: InternTrack, ZimJobMatch",
+      skills: "AI/ML: Python, scikit-learn, SHAP, Ollama, FAISS, RAG, MITRE ATT&CK — Fundamentals: Network Security, Linux, Threats & Vulns — Tools: Nmap, Wireshark, Kali, Python — Dev: React, Flask, MySQL",
       contact: "GitHub: SiyaShez — see the Contact section above for more."
     };
     function printLine(text, cls) {
